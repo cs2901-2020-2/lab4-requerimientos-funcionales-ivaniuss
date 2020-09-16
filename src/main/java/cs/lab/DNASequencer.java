@@ -24,7 +24,8 @@ public class  DNASequencer {
                 genoma.substring(1);
             }
             int endIndx = match.end();
-            for(int j = endIndx; j < part.get(i+1).size(); j++)
+            
+            for(int j = endIndx; j < part.get(i+1).length(); j++)
                 minimunSequence += part.get(i+1).charAt(j);  
         }
         return minimunSequence;
