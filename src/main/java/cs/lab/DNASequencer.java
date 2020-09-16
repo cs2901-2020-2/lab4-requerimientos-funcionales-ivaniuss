@@ -16,7 +16,7 @@ public class  DNASequencer {
         String minimunSequence = part.get(0);
 
 
-        for(int i = 0; i < part.size(); i++){
+        for(int i = 0; i < part.size()-1; i++){
             String genoma = part.get(i);
             Pattern word = Pattern.compile(genoma);
             Matcher match = word.matcher(part.get(i+1));
