@@ -14,7 +14,7 @@
         <sonar.projectKey>cs2901-2020-2_lab4-requerimientos-funcionales-ivaniuss</sonar.projectKey>
         <sonar.organization>cs2901-2020-2</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-	<sonar.login></sonar.login>	
+	<sonar.login>ca34b25275f25625e3e8eb03dc8db4be6a8b0c</sonar.login>	
     </properties>
     <dependencies>
         <dependency>
@@ -58,9 +58,10 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M1</version>
-            </plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.7</version>
+	    </plugin>
         </plugins>
     </build>
+
 </project>

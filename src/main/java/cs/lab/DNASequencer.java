@@ -10,16 +10,24 @@ public class  DNASequencer {
     public DNASequencer() {
         logger.info("Starting sequencer...");
     }
-    public String calculate(List<String> part){
-        String minimunSequence = part.get(0);
-	int endIndex = 0;
+    public String calculate(final List<String> part) throws TooManyLinesException, TooLargeSubsequenceException {        
+        if(part.size() > 160000)
+            throw new TooManyLinesException("too much subsquences");
+        
+        StringBuilder minimunSequence = new StringBuilder(part.get(0));
+        
+        int endIndex = 0;
+        
         for(int i = 0; i < part.size()-1; i++){
-            
+        
+        if(part.get(i).length() > 200)
+            throw new TooLargeSubsequenceException("too large susequence");
+        
 	    Boolean wordFounded = false;
 	    String genoma = part.get(i);
-            while (!wordFounded) {
-                Pattern word = Pattern.compile(genoma);
-		Matcher match = word.matcher(part.get(i+1));
+            while (Boolean.FALSE.equals(wordFounded)) {
+                final Pattern word = Pattern.compile(genoma);
+		final Matcher match = word.matcher(part.get(i+1));
 		if(match.find()){
 	        	wordFounded = true;
 			endIndex = match.end();
@@ -28,10 +36,10 @@ public class  DNASequencer {
 		}
 	    }
             for(int j = endIndex; j < part.get(i+1).length(); j++)
-                minimunSequence += part.get(i+1).charAt(j);  
+                minimunSequence.append(part.get(i+1).charAt(j));  
         }
-		
-        return minimunSequence;
+            
+        return minimunSequence.toString();
     
     }
 }
